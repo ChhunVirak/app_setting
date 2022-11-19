@@ -19,7 +19,7 @@ class Pagination extends StatefulWidget {
 }
 
 class _PaginationState extends State<Pagination> {
-  final _controller = ScrollController();
+  // final _controller = ScrollController();
   final apibaseHelper = ApiBaseHelper();
   var data = [];
   var loading = true;
@@ -30,7 +30,7 @@ class _PaginationState extends State<Pagination> {
         .onNetworkRequesting(
             url: widget.url, methode: METHODE.get, isAuthorize: false)
         .then((value) {
-      debugPrint("Function Work ${value[0]["name"]}");
+      debugPrint("Function Work ${value[0]["title"]}");
       setState(() {
         data.clear();
         data.addAll(value);
@@ -104,14 +104,14 @@ class _PaginationState extends State<Pagination> {
               child: loading
                   ? const Center(child: CircularProgressIndicator())
                   : ListView.builder(
-                      controller: _controller,
+                      // controller: _controller,
                       itemCount: data.length,
                       itemBuilder: (context, index) {
                         return index >= page && index < page + 20
                             ? Padding(
                                 padding: const EdgeInsets.only(bottom: 20),
                                 child: Text(
-                                  "Pagination email item ${index + 1} : ${data[index]["email"]}",
+                                  "Pagination email item ${index + 1} : ${data[index]["title"]}",
                                   style: TextStyle(
                                     color: index % 2 == 0
                                         ? Colors.black

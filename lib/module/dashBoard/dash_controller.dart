@@ -22,7 +22,7 @@ class DashController extends GetxController {
     Fav(),
     Fav(),
     Fav(),
-    Fav(),
+    Fav()
   ].obs;
 }
 
